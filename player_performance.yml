@@ -1,0 +1,399 @@
+A Nehra:
+  batting:
+    4s: 0
+    6s: 0
+    balls: 0
+    runs: 0
+  bowling:
+    4s: 5
+    6s: 2
+    balls: 26
+    extras: 2
+    runs: 45
+    wickets: 1
+  fielding:
+    catches: 0
+    runout_catch: 0
+    runout_direct: 0
+    runout_throw: 0
+    stumping: 0
+AM Nayar:
+  batting:
+    4s: 1
+    6s: 1
+    balls: 15
+    runs: 20
+  bowling:
+    4s: 2
+    6s: 0
+    balls: 6
+    extras: 0
+    runs: 10
+    wickets: 0
+  fielding:
+    catches: 3
+    runout_catch: 0
+    runout_direct: 0
+    runout_throw: 0
+    stumping: 0
+B Akhil:
+  batting:
+    4s: 0
+    6s: 0
+    balls: 6
+    runs: 3
+  bowling:
+    4s: 2
+    6s: 0
+    balls: 18
+    extras: 2
+    runs: 19
+    wickets: 2
+  fielding:
+    catches: 0
+    runout_catch: 0
+    runout_direct: 0
+    runout_throw: 0
+    stumping: 0
+DJ Thornely:
+  batting:
+    4s: 0
+    6s: 0
+    balls: 6
+    runs: 0
+  bowling:
+    4s: 0
+    6s: 0
+    balls: 0
+    extras: 0
+    runs: 0
+    wickets: 0
+  fielding:
+    catches: 0
+    runout_catch: 0
+    runout_direct: 0
+    runout_throw: 0
+    stumping: 0
+DS Kulkarni:
+  batting:
+    4s: 0
+    6s: 0
+    balls: 0
+    runs: 0
+  bowling:
+    4s: 3
+    6s: 0
+    balls: 18
+    extras: 2
+    runs: 19
+    wickets: 1
+  fielding:
+    catches: 0
+    runout_catch: 0
+    runout_direct: 0
+    runout_throw: 0
+    stumping: 0
+Harbhajan Singh:
+  batting:
+    4s: 0
+    6s: 0
+    balls: 2
+    runs: 2
+  bowling:
+    4s: 2
+    6s: 2
+    balls: 25
+    extras: 1
+    runs: 36
+    wickets: 2
+  fielding:
+    catches: 1
+    runout_catch: 0
+    runout_direct: 0
+    runout_throw: 0
+    stumping: 0
+JH Kallis:
+  batting:
+    4s: 0
+    6s: 1
+    balls: 24
+    runs: 25
+  bowling:
+    4s: 7
+    6s: 1
+    balls: 20
+    extras: 3
+    runs: 44
+    wickets: 0
+  fielding:
+    catches: 0
+    runout_catch: 0
+    runout_direct: 0
+    runout_throw: 0
+    stumping: 0
+L Ronchi:
+  batting:
+    4s: 2
+    6s: 0
+    balls: 10
+    runs: 8
+  bowling:
+    4s: 0
+    6s: 0
+    balls: 0
+    extras: 0
+    runs: 0
+    wickets: 0
+  fielding:
+    catches: 1
+    runout_catch: 0
+    runout_direct: 0
+    runout_throw: 0
+    stumping: 0
+LRPL Taylor:
+  batting:
+    4s: 1
+    6s: 2
+    balls: 13
+    runs: 23
+  bowling:
+    4s: 0
+    6s: 0
+    balls: 0
+    extras: 0
+    runs: 0
+    wickets: 0
+  fielding:
+    catches: 0
+    runout_catch: 0
+    runout_direct: 0
+    runout_throw: 0
+    stumping: 0
+MV Boucher:
+  batting:
+    4s: 4
+    6s: 2
+    balls: 20
+    runs: 39
+  bowling:
+    4s: 0
+    6s: 0
+    balls: 0
+    extras: 0
+    runs: 0
+    wickets: 0
+  fielding:
+    catches: 0
+    runout_catch: 0
+    runout_direct: 0
+    runout_throw: 0
+    stumping: 1
+P Kumar:
+  batting:
+    4s: 0
+    6s: 0
+    balls: 0
+    runs: 0
+  bowling:
+    4s: 3
+    6s: 1
+    balls: 25
+    extras: 1
+    runs: 29
+    wickets: 1
+  fielding:
+    catches: 0
+    runout_catch: 0
+    runout_direct: 0
+    runout_throw: 0
+    stumping: 0
+PR Shah:
+  batting:
+    4s: 2
+    6s: 0
+    balls: 23
+    runs: 19
+  bowling:
+    4s: 0
+    6s: 0
+    balls: 0
+    extras: 0
+    runs: 0
+    wickets: 0
+  fielding:
+    catches: 0
+    runout_catch: 0
+    runout_direct: 0
+    runout_throw: 0
+    stumping: 0
+R Dravid:
+  batting:
+    4s: 4
+    6s: 0
+    balls: 33
+    runs: 32
+  bowling:
+    4s: 0
+    6s: 0
+    balls: 0
+    extras: 0
+    runs: 0
+    wickets: 0
+  fielding:
+    catches: 0
+    runout_catch: 0
+    runout_direct: 0
+    runout_throw: 0
+    stumping: 0
+R Vinay Kumar:
+  batting:
+    4s: 0
+    6s: 0
+    balls: 0
+    runs: 0
+  bowling:
+    4s: 3
+    6s: 3
+    balls: 24
+    extras: 1
+    runs: 42
+    wickets: 0
+  fielding:
+    catches: 0
+    runout_catch: 0
+    runout_direct: 0
+    runout_throw: 0
+    stumping: 0
+RV Uthappa:
+  batting:
+    4s: 5
+    6s: 1
+    balls: 38
+    runs: 48
+  bowling:
+    4s: 0
+    6s: 0
+    balls: 0
+    extras: 0
+    runs: 0
+    wickets: 0
+  fielding:
+    catches: 0
+    runout_catch: 0
+    runout_direct: 0
+    runout_throw: 0
+    stumping: 0
+S Chanderpaul:
+  batting:
+    4s: 3
+    6s: 0
+    balls: 12
+    runs: 16
+  bowling:
+    4s: 0
+    6s: 0
+    balls: 0
+    extras: 0
+    runs: 0
+    wickets: 0
+  fielding:
+    catches: 0
+    runout_catch: 0
+    runout_direct: 0
+    runout_throw: 0
+    stumping: 0
+SB Joshi:
+  batting:
+    4s: 0
+    6s: 0
+    balls: 0
+    runs: 0
+  bowling:
+    4s: 1
+    6s: 0
+    balls: 12
+    extras: 0
+    runs: 10
+    wickets: 0
+  fielding:
+    catches: 0
+    runout_catch: 0
+    runout_direct: 0
+    runout_throw: 0
+    stumping: 0
+SM Pollock:
+  batting:
+    4s: 3
+    6s: 2
+    balls: 12
+    runs: 28
+  bowling:
+    4s: 1
+    6s: 0
+    balls: 24
+    extras: 0
+    runs: 17
+    wickets: 0
+  fielding:
+    catches: 0
+    runout_catch: 0
+    runout_direct: 0
+    runout_throw: 0
+    stumping: 0
+ST Jayasuriya:
+  batting:
+    4s: 5
+    6s: 1
+    balls: 17
+    runs: 29
+  bowling:
+    4s: 2
+    6s: 2
+    balls: 24
+    extras: 0
+    runs: 39
+    wickets: 1
+  fielding:
+    catches: 0
+    runout_catch: 0
+    runout_direct: 0
+    runout_throw: 0
+    stumping: 0
+V Kohli:
+  batting:
+    4s: 3
+    6s: 1
+    balls: 15
+    runs: 23
+  bowling:
+    4s: 0
+    6s: 0
+    balls: 0
+    extras: 0
+    runs: 0
+    wickets: 0
+  fielding:
+    catches: 2
+    runout_catch: 0
+    runout_direct: 0
+    runout_throw: 0
+    stumping: 0
+Z Khan:
+  batting:
+    4s: 0
+    6s: 0
+    balls: 0
+    runs: 0
+  bowling:
+    4s: 2
+    6s: 0
+    balls: 24
+    extras: 4
+    runs: 21
+    wickets: 3
+  fielding:
+    catches: 1
+    runout_catch: 0
+    runout_direct: 1
+    runout_throw: 0
+    stumping: 0
