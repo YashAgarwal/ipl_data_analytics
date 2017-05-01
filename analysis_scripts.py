@@ -50,15 +50,14 @@ def some_plotting():
 ''' Just write the one function that is being executed here
 '''
 
-## TODO: Return sorted list in this function
 def average_ppg():
     time_srs = ps.get_match_data("output/all_player_points_time_series.yaml")
     averages = list()
     for key in time_srs.keys():
         averages.append([key, sum(time_srs[key])/len(time_srs[key])])
-    return averages
-
-
+    averages_sorted = sorted(averages, key=operator.itemgetter(1))
+    averages_sorted.reverse()
+    return averages_sorted
 
 #df = some_plotting()
 #time_series = player_performance_over_time()
