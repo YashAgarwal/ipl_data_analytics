@@ -1,17 +1,21 @@
-.. IPL Predictor documentation master file, created by
-   sphinx-quickstart on Mon May  1 23:23:04 2017.
-   You can adapt this file completely to your liking, but it should at least
-   contain the root `toctree` directive.
-
 Welcome to IPL Predictor's documentation!
 =========================================
 
+Current Scripts in Progress
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
 Contents:
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 3
 
+.. automodule:: player_stats
+   :members:
 
+.. automodule:: points
+  :members:
+
+.. automodule:: analysis_scripts
+  :members:
 
 Indices and tables
 ==================
@@ -19,4 +23,3 @@ Indices and tables
 * :ref:`genindex`
 * :ref:`modindex`
 * :ref:`search`
-
