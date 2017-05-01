@@ -4,6 +4,7 @@ import yaml
 import points
 
 def add_player(player_name, player_performance):
+
     if player_name not in player_performance:
         player_performance[player_name] = dict()
         player_performance[player_name].update(dict({'batting':{'runs' : 0, 'balls' : 0, '4s': 0, '6s': 0},
@@ -19,8 +20,9 @@ def get_all_player_performance_for_match(match_file_name):
 
     player_performance = dict()
     innings1_balls = data["innings"][0]["1st innings"]["deliveries"]
-    innings2_balls = data["innings"][1]["2nd innings"]["deliveries"]
-    innings1_balls.extend(innings2_balls)
+    if len(data["innings"]) > 1:
+        innings2_balls = data["innings"][1]["2nd innings"]["deliveries"]
+        innings1_balls.extend(innings2_balls)
 
     for ball in innings1_balls:
 
@@ -83,6 +85,10 @@ def get_all_player_performance_for_match(match_file_name):
     return player_performance
 
 def get_all_player_points_for_match(player_performance):
+
+    if player_performance == -1:
+        return -1
+
     player_points = dict()
     import operator
 
@@ -110,12 +116,14 @@ def save_all_player_points_for_match(match_file_name):
         yaml.dump(player_points_sorted, outfile, default_flow_style=False)
 
 def get_match_date(match_file_name):
+
     data = get_match_data(match_file_name)
     if data != -1:
         return data["info"]["dates"][0]
     return ""
 
 def get_match_data(match_file_name):
+
     try:
         with open(match_file_name, 'r') as stream:
             try:
@@ -128,7 +136,25 @@ def get_match_data(match_file_name):
     finally:
         return data
 
+"""Time series of Points for every player in the last 10 seasons of IPL"""
+time_series = dict()
+
 for match_number in range(335982,1082626):
-    print match_number, "\r"
+    #print match_number, "\r"
     match_file_name = "data/%d.yaml" % (match_number)
-    save_all_player_points_for_match(match_file_name)
+    #save_all_player_points_for_match(match_file_name)
+
+    points_data = get_all_player_points_for_match(get_all_player_performance_for_match(match_file_name))
+    if points_data != -1:
+        for i,v in enumerate(points_data):
+            if v[0] in time_series.keys():
+                time_series[v[0]].append(v[1])
+            else:
+                time_series[v[0]] = list([v[1]])
+
+    if match_number % 1000 == 0:
+        print match_number
+
+print "Done, Yay!"
+with open('output/all_player_points_time_series.yaml', 'w') as outfile:
+    yaml.dump(time_series, outfile, default_flow_style=False)
