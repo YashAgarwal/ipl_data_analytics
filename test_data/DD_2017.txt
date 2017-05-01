@@ -1,0 +1,86 @@
+(lp0
+(lp1
+S'K Rabada'
+p2
+aF33.5
+aa(lp3
+S'CH Morris'
+p4
+aF22.32608695652174
+aa(lp5
+S'AD Mathews'
+p6
+aF19.391304347826086
+aa(lp7
+S'CJ Anderson'
+p8
+aF19.125
+aa(lp9
+S'MN Samuels'
+p10
+aF19.1
+aa(lp11
+S'CR Brathwaite'
+p12
+aF18.666666666666668
+aa(lp13
+S'SV Samson'
+p14
+aF16.95762711864407
+aa(lp15
+S'SW Billings'
+p16
+aF16.95
+aa(lp17
+S'SS Iyer'
+p18
+aF16.92
+aa(lp19
+S'A Mishra'
+p20
+aF16.41176470588235
+aa(lp21
+S'Z Khan'
+p22
+aF15.257894736842106
+aa(lp23
+S'RR Pant'
+p24
+aF15.117647058823529
+aa(lp25
+S'PJ Cummins'
+p26
+aF15.0
+aa(lp27
+S'KK Nair'
+p28
+aF14.188888888888888
+aa(lp29
+S'N Saini'
+p30
+aF14.0
+aa(lp31
+S'S Nadeem'
+p32
+aF11.55
+aa(lp33
+S'Mohammed Shami'
+p34
+aF9.458333333333334
+aa(lp35
+S'M Ashwin'
+p36
+aF9.4
+aa(lp37
+S'AP Tare'
+p38
+aF8.362068965517242
+aa(lp39
+S'J Yadav'
+p40
+aF8.0
+aa(lp41
+S'AR Bawne'
+p42
+aF6.5
+aa.
