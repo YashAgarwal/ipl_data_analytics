@@ -1,6 +1,8 @@
 import player_stats as ps
 import operator
 import matplotlib.pyplot as plt
+import pandas as pd
+import pickle
 
 #### CHANGED: Moved from player_stats.py undet tag
 #### ****** time_series ******
@@ -63,4 +65,25 @@ def average_ppg():
 #time_series = player_performance_over_time()
 #print time_series
 
+#df = average_ppg()
+
+
+def average_ppg_playerlist(list):
+    df = average_ppg()
+    for i in df:
+        print i
+
+a = pd.read_csv('data/iplRoster2017/DD.txt')
+a = list(a.values.flatten())
+b = list()
 df = average_ppg()
+
+for str in a:
+    for sublist in df:
+        if sublist[0] == str:
+            b.append(sublist)
+b = sorted(b, key=operator.itemgetter(1))
+b.reverse()
+print b
+with open('test_data/DD_2017.txt', 'w') as fp:
+    pickle.dump(b, fp)
