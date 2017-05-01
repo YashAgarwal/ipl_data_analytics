@@ -2,6 +2,7 @@
 
 import yaml
 import points
+import numpy
 
 def add_player(player_name, player_performance):
 
@@ -9,8 +10,8 @@ def add_player(player_name, player_performance):
         player_performance[player_name] = dict()
         player_performance[player_name].update(dict({'batting':{'runs' : 0, 'balls' : 0, '4s': 0, '6s': 0},
                 'bowling':{'runs' : 0, 'balls' : 0, 'wickets':0, 'extras':0, '4s': 0, '6s': 0},
-                'fielding':{'catches' : 0, 'stumping' : 0, 'runout_throw': 0, 'runout_catch': 0, 'runout_direct': 0}
-                }))
+                'fielding':{'catches' : 0, 'stumping' : 0, 'runout_throw': 0, 'runout_catch': 0, 'runout_direct': 0},
+                'meta' : {'team' : ' ', 'opposition' : ' '  , 'date': ' ' }}))
 
 def get_all_player_performance_for_match(match_file_name):
 
@@ -24,9 +25,13 @@ def get_all_player_performance_for_match(match_file_name):
         innings2_balls = data["innings"][1]["2nd innings"]["deliveries"]
         innings1_balls.extend(innings2_balls)
 
+
     for ball in innings1_balls:
 
         ball_data = ball[ball.keys()[0]]
+
+        # NOTE: Adding meta data field - Piyush Divyankar(1/05/17)
+        print ball.keys()[0]
 
         #Batsman Data
         player_name = ball_data["batsman"]
@@ -136,25 +141,23 @@ def get_match_data(match_file_name):
     finally:
         return data
 
-"""Time series of Points for every player in the last 10 seasons of IPL"""
-time_series = dict()
+def normalize_hist(freq):
+    m = freq[0].max(axis=0)
+    print freq[0]
+    for i,v in enumerate(freq[0]):
+        freq[0][i] = freq[0][i]/m;
+        print freq[0][i]
+    return freq
 
-for match_number in range(335982,1082626):
-    #print match_number, "\r"
-    match_file_name = "data/%d.yaml" % (match_number)
-    #save_all_player_points_for_match(match_file_name)
+'''Time series of Points for every player in the last 10 seasons of IPL'''
 
-    points_data = get_all_player_points_for_match(get_all_player_performance_for_match(match_file_name))
-    if points_data != -1:
-        for i,v in enumerate(points_data):
-            if v[0] in time_series.keys():
-                time_series[v[0]].append(v[1])
-            else:
-                time_series[v[0]] = list([v[1]])
+'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+PLEASE DON'T WRITE EXECUTEABLE CODE IN THIS FILE
+USE THE FILE := ./analysis_scripts.py
+'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
 
-    if match_number % 1000 == 0:
-        print match_number
 
-print "Done, Yay!"
-with open('output/all_player_points_time_series.yaml', 'w') as outfile:
-    yaml.dump(time_series, outfile, default_flow_style=False)
+'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+The code here is moved to analysis_scripts.py and modified to function
+as it would here. it under the tag : time_series
+'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
