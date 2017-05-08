@@ -127,6 +127,13 @@ def get_match_date(match_file_name):
         return data["info"]["dates"][0]
     return ""
 
+def get_match_venue(match_file_name):
+
+    data = get_match_data(match_file_name)
+    if data != -1:
+        return data["info"]["venue"]
+    return ""
+
 def get_match_data(match_file_name):
 
     try:
