@@ -3,6 +3,8 @@ import operator
 import matplotlib.pyplot as plt
 import pandas as pd
 import pickle
+from operator import itemgetter
+import numpy as np
 
 #### CHANGED: Moved from player_stats.py undet tag
 #### ****** time_series ******
@@ -68,6 +70,7 @@ def average_ppg():
 #df = average_ppg()
 
 
+'''
 def average_ppg_playerlist(list):
     df = average_ppg()
     for i in df:
@@ -87,3 +90,40 @@ b.reverse()
 print b
 with open('test_data/DD_2017.txt', 'w') as fp:
     pickle.dump(b, fp)
+'''
+
+
+if __name__ =="__main__":
+    time_srs = ps.get_match_data("output/all_player_points_time_series.yaml")
+    #print time_srs
+    count = 0
+    h = list()
+    for key in time_srs.keys():
+        #print ps.hIndex_player(time_srs[key])
+        #print time_srs[key]
+        try:
+            a = ps.hIndex_player(time_srs[key])
+            a.insert(0, key)
+            h.append(a)
+        except:
+            continue
+
+    h = sorted(h, key=itemgetter(2))
+    h_i = list()
+    ings = list()
+    for s in h:
+        h_i.append(s[1])
+        ings.append(s[2])
+
+    fig = plt.figure()
+    ax = fig.add_subplot(1,1,1)
+    ax.scatter(ings, h_i)
+
+    m,b = np.polyfit(ings, h_i, 1)
+    x = range(0, max(ings))
+    y = list()
+    for k in x:
+        y.append(m*k+b)
+
+    ax.plot(x,y)
+    plt.show()

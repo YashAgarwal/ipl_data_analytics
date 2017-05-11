@@ -161,3 +161,30 @@ USE THE FILE := ./analysis_scripts.py
 The code here is moved to analysis_scripts.py and modified to function
 as it would here. it under the tag : time_series
 '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+
+'''
+The following function calculates h-index of a list of numbers
+returns a list of length 2
+[h-index, #-of-elements-in-list]
+'''
+def hIndex_player(points_series, l=-1):
+    if l == -1 or l > len(points_series):
+        l = len(points_series)
+
+    points_series = points_series[:l]
+    points_series.sort()
+    points_series.reverse()
+    l = [0] * (int(max(points_series))+1)
+    k = len(points_series)-1
+    for i in  range(0, int(max(points_series))+1):
+        for j in points_series:
+            if j > i:
+                l[i] += 1
+
+    j = 0
+    for i in l:
+        if i  < j:
+            a = [j-1, len(points_series)]
+            return a;
+            break
+        j += 1
