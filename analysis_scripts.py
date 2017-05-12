@@ -3,6 +3,8 @@ import operator
 import matplotlib.pyplot as plt
 import pandas as pd
 import pickle
+from operator import itemgetter
+import numpy as np
 import copy
 import os
 import yaml
@@ -69,7 +71,6 @@ def average_ppg():
 #print time_series
 
 #df = average_ppg()
-
 def average_ppg_playerlist(list):
     df = average_ppg()
     for i in df:
@@ -107,7 +108,7 @@ def get_all_player_performance_for_all_stadium():
     for i,match_file in enumerate(match_file_list):
         #Progress check
         if i%50 == 0:
-            print float(i)/number_of_matches * 100, " %"
+            print round(float(i)/number_of_matches * 100,2), " %"
         match_file_name = "data/match_data/%s" % (match_file)
         #get the stadium name
         stadium = ps.get_match_venue(match_file_name)
@@ -121,7 +122,6 @@ def get_all_player_performance_for_all_stadium():
     print "Saving the data in file ", output_file
     with open(output_file, 'w') as outfile:
         yaml.dump(player_performance, outfile, default_flow_style=False)
-
 
 '''
 ########################################################################################
@@ -146,6 +146,41 @@ print b
 with open('test_data/DD_2017.txt', 'w') as fp:
     pickle.dump(b, fp)
 '''
+
+if __name__ =="__main__":
+    time_srs = ps.get_match_data("output/all_player_points_time_series.yaml")
+    #print time_srs
+    count = 0
+    h = list()
+    for key in time_srs.keys():
+        #print ps.hIndex_player(time_srs[key])
+        #print time_srs[key]
+        try:
+            a = ps.hIndex_player(time_srs[key])
+            a.insert(0, key)
+            h.append(a)
+        except:
+            continue
+
+    h = sorted(h, key=itemgetter(2))
+    h_i = list()
+    ings = list()
+    for s in h:
+        h_i.append(s[1])
+        ings.append(s[2])
+
+    fig = plt.figure()
+    ax = fig.add_subplot(1,1,1)
+    ax.scatter(ings, h_i)
+
+    m,b = np.polyfit(ings, h_i, 1)
+    x = range(0, max(ings))
+    y = list()
+    for k in x:
+        y.append(m*k+b)
+
+    ax.plot(x,y)
+    plt.show()
 
 '''
 # Correct the Player names in the team roster for this season by linearly traversing through the player name list
@@ -211,5 +246,4 @@ for bowler in data['Bowler']:
 
 print new_list
 data['Bowler'] = copy.copy(new_list(team_file, 'w') as outfile
-
 '''
