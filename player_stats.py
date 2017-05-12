@@ -30,9 +30,6 @@ def get_all_player_performance_for_match(match_file_name):
 
         ball_data = ball[ball.keys()[0]]
 
-        # NOTE: Adding meta data field - Piyush Divyankar(1/05/17)
-        print ball.keys()[0]
-
         #Batsman Data
         player_name = ball_data["batsman"]
 

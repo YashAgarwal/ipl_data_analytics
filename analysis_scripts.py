@@ -4,6 +4,8 @@ import matplotlib.pyplot as plt
 import pandas as pd
 import pickle
 import copy
+import os
+import yaml
 
 #### CHANGED: Moved from player_stats.py undet tag
 #### ****** time_series ******
@@ -15,7 +17,7 @@ def player_performance_over_time():
 ## TODO: merge players with (sub) in their
     for match_number in range(335982,1082626):
         #print match_number, "\r"
-        match_file_name = "data/%d.yaml" % (match_number)
+        match_file_name = "data/match_data/%d.yaml" % (match_number)
         #save_all_player_points_for_match(match_file_name)
 
         points_data = ps.get_all_player_points_for_match(ps.get_all_player_performance_for_match(match_file_name))
@@ -89,6 +91,39 @@ def add_dict(merged_dict, dicts):
                     merged_dict[k] += d[k]
 
 '''
+Find Stadium wise perfomance for all players
+This is a time consuming function
+preferrential usage is to run it once for a dataset and save the generated file which will then be used for further analysis
+'''
+def get_all_player_performance_for_all_stadium():
+    # Get the Player Performance as defined in the function get_all_player_performance_for_match() for each stadium
+    # The name of the stadium is given in the info -> venue
+
+    #The file name for all the match data
+    match_file_list = os.listdir('./data/match_data/')
+    player_performance = dict()
+    print("Calculating Stadium wise performance for all players..")
+    number_of_matches = len(match_file_list)
+    for i,match_file in enumerate(match_file_list):
+        #Progress check
+        if i%50 == 0:
+            print float(i)/number_of_matches * 100, " %"
+        match_file_name = "data/match_data/%s" % (match_file)
+        #get the stadium name
+        stadium = ps.get_match_venue(match_file_name)
+        #check if there is a key named "stadium" in the player_performance dictionary
+        if stadium not in player_performance.keys():
+            player_performance[stadium] = dict()
+        add_dict(player_performance[stadium], [ps.get_all_player_performance_for_match(match_file_name)])
+
+    #Save the data in a file
+    output_file = 'output/all_player_performance_all_stadium.yaml'
+    print "Saving the data in file ", output_file
+    with open(output_file, 'w') as outfile:
+        yaml.dump(player_performance, outfile, default_flow_style=False)
+
+
+'''
 ########################################################################################
 Testing Area:
 Create all the prototypes here before writing the actual function
@@ -111,28 +146,6 @@ print b
 with open('test_data/DD_2017.txt', 'w') as fp:
     pickle.dump(b, fp)
 '''
-'''
-Find Stadium wise perfomance for some players
-Stadium name: M Chinnaswamy Stadium
-'''
-
-# Get the Player Performance as defined in the function get_all_player_performance_for_match() for each stadium
-# The name of the stadium is given in the info -> venue
-
-match_file_list = pd.read_csv('data/0_filelist.txt')
-match_file_list = list(match_file_list.values.flatten())
-stadium_file = 'output/all_player_points_time_series.yaml' 
-player_performance = dict()
-current_stadiun = 'M Chinnaswamy Stadium'
-for match_file in match_file_list:
-    #print match_number, "\r"
-    match_file_name = "data/%s" % (match_file)
-    stadium = ps.get_match_venue(match_file_name)
-    if stadium == current_stadiun:
-        add_dict(player_performance, [get_all_player_performance_for_match(match_file_name)])
-
-with open(stadium_file, 'w') as outfile:
-    yaml.dump(player_performance, outfile, default_flow_style=False)
 
 '''
 # Correct the Player names in the team roster for this season by linearly traversing through the player name list
